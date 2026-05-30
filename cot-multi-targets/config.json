@@ -1,0 +1,11 @@
+{
+  "listen": {
+    "ip": "0.0.0.0"
+  },
+  "destinations": [
+    { "ip": "192.168.164.1", "port": 9000, "proto": "tcp" },
+    { "ip": "192.168.168.1", "port": 9000, "proto": "tcp" },
+    { "ip": "10.0.20.65", "port": 9001, "proto": "udp" }
+  ],
+  "reconnect_interval": 30
+}
