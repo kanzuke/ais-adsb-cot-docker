@@ -11,7 +11,7 @@ services:
       - COT_MULTI_PORT=9090
       - COT_DEBUG=false
     volumes:
-      - ./config.json:/app/config.json:ro
+      - ./cot-multi-targets/config.json:/app/config.json:ro
 
 
   cotproxyweb:
@@ -53,6 +53,8 @@ services:
       - ADSB_FEED_URL=http://127.0.0.1:8080/data/aircraft.json
       - ADSB_POLL_INTERVAL=5
       - COT_URL=udp+wo://127.0.0.1:8087
+    volumes:
+      - ./adsbcot/known_aircraft.csv:/app/known_aircraft.csv:ro
     
   aiscot:
     image: kanzuke/aiscot:latest
@@ -65,4 +67,5 @@ services:
       - TZ=Etc/UTC
       - AIS_PORT=5050
       - COT_URL=udp+wo://127.0.0.1:8087
- 
+    volumes:
+      - ./aiscot/ais-known-craft.csv:/app/ais-known-craft.csv
